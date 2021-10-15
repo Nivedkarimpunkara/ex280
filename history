@@ -1,0 +1,94 @@
+    1  which oc 
+    2  sudo su - 
+    3  cd DOw
+    4  cd Downloads/
+    5  pwd
+    6  ll
+    7  rm -rf jboss-eap-7.4.0-installer.jar 
+    8  ll
+    9  unzip jboss-eap-7.4.0.zip 
+   10  ll
+   11  #jboss-eap-7.4/bin/add-user.sh 
+   12  ll
+   13  mkdir ~/ex180
+   14  cd ~/ex180/
+   15  pwd
+   16  touch Dockerfile
+   17  pwd
+   18  vim Dockerfile 
+   19  cp -rpv ~/Downloads/jboss-eap-7.4.0.zip .
+   20  ll
+   21  pwd
+   22  vim Dockerfile 
+   23  ll
+   24  vim Dockerfile 
+   25  ll
+   26  pwd
+   27  podman images
+   28  podman build --help |less
+   29  podman build  --layers=false -t acme/jboss7-eap.01 .
+   30  podman images
+   31  pwd
+   32  ll
+   33  mkdir ques-01 
+   34  mv Dockerfile jboss-eap-7.4.0.zip ques-01/
+   35  ll
+   36  mkdir ques-02
+   37  cd ques-0
+   38  cd ques-02/
+   39  touch scriptStart.sh 
+   40  touch scriptStop.sh 
+   41  touch scriptlog.sh 
+   42  ll
+   43  pwd
+   44  vim scriptStart.sh 
+   45  podman  images
+   46  vim scriptStart.sh 
+   47  vim ../ques-01/Dockerfile 
+   48  ll
+   49  vim scriptStart.sh 
+   50  vim scriptlog.sh 
+   51  vim scriptStop.sh 
+   52  ll
+   53  chmod 755 *.sh 
+   54  ll
+   55  ./scriptStart.sh 
+   56  podman ps
+   57  curl localhost:8080
+   58  podman ps
+   59  cat ../ques-01/Dockerfile 
+   60  ll
+   61  cat ../ques-01/Dockerfile 
+   62  ls -l ../ques-01/
+   63  ll
+   64  cat scriptStart.sh 
+   65  cat scriptlog.sh
+   66  cat scriptStop.sh
+   67  podman ps
+   68  podman rm -f acme 
+   69  ll
+   70  ./scriptStart.sh 
+   71  ./scriptlog.sh 
+   72  ./scriptStop.sh 
+   73  vim scriptStop.sh 
+   74  ./scriptStop.sh 
+   75  ll
+   76  podman  images
+   77  podman tag localhost/acme/jboss7-eap.01 localhost/acme/jboss7-eap.01:7.2.final
+   78  podman  images
+   79  cd ..
+   80  mkdir ques-03
+   81  cd ques-03/
+   82  podman save -o eap7-jboss.tar localhost/acme/jboss7-eap.01
+   83  ll
+   84  podman tag localhost/acme/jboss7-eap.01 quay.io/cprakash2118/localhost/acme/jboss7-eap.01:7.2.final
+   85  podman images
+   86  cd ..
+   87  ll
+   88  cd ques-01/
+   89  pwd
+   90  ll
+   91  vim Dockerfile 
+   92  #podman build  --layers=false -t acme/jboss7-eap.01 .
+   93  podman images
+   94  history > history
