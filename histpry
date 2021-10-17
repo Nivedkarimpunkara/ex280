@@ -1,0 +1,672 @@
+    1  which oc 
+    2  sudo su - 
+    3  cd DOw
+    4  cd Downloads/
+    5  pwd
+    6  ll
+    7  rm -rf jboss-eap-7.4.0-installer.jar 
+    8  ll
+    9  unzip jboss-eap-7.4.0.zip 
+   10  ll
+   11  #jboss-eap-7.4/bin/add-user.sh 
+   12  ll
+   13  mkdir ~/ex180
+   14  cd ~/ex180/
+   15  pwd
+   16  touch Dockerfile
+   17  pwd
+   18  vim Dockerfile 
+   19  cp -rpv ~/Downloads/jboss-eap-7.4.0.zip .
+   20  ll
+   21  pwd
+   22  vim Dockerfile 
+   23  ll
+   24  vim Dockerfile 
+   25  ll
+   26  pwd
+   27  podman images
+   28  podman build --help |less
+   29  podman build  --layers=false -t acme/jboss7-eap.01 .
+   30  podman images
+   31  pwd
+   32  ll
+   33  mkdir ques-01 
+   34  mv Dockerfile jboss-eap-7.4.0.zip ques-01/
+   35  ll
+   36  mkdir ques-02
+   37  cd ques-0
+   38  cd ques-02/
+   39  touch scriptStart.sh 
+   40  touch scriptStop.sh 
+   41  touch scriptlog.sh 
+   42  ll
+   43  pwd
+   44  vim scriptStart.sh 
+   45  podman  images
+   46  vim scriptStart.sh 
+   47  vim ../ques-01/Dockerfile 
+   48  ll
+   49  vim scriptStart.sh 
+   50  vim scriptlog.sh 
+   51  vim scriptStop.sh 
+   52  ll
+   53  chmod 755 *.sh 
+   54  ll
+   55  ./scriptStart.sh 
+   56  podman ps
+   57  curl localhost:8080
+   58  podman ps
+   59  cat ../ques-01/Dockerfile 
+   60  ll
+   61  cat ../ques-01/Dockerfile 
+   62  ls -l ../ques-01/
+   63  ll
+   64  cat scriptStart.sh 
+   65  cat scriptlog.sh
+   66  cat scriptStop.sh
+   67  podman ps
+   68  podman rm -f acme 
+   69  ll
+   70  ./scriptStart.sh 
+   71  ./scriptlog.sh 
+   72  ./scriptStop.sh 
+   73  vim scriptStop.sh 
+   74  ./scriptStop.sh 
+   75  ll
+   76  podman  images
+   77  podman tag localhost/acme/jboss7-eap.01 localhost/acme/jboss7-eap.01:7.2.final
+   78  podman  images
+   79  cd ..
+   80  mkdir ques-03
+   81  cd ques-03/
+   82  podman save -o eap7-jboss.tar localhost/acme/jboss7-eap.01
+   83  ll
+   84  podman tag localhost/acme/jboss7-eap.01 quay.io/cprakash2118/localhost/acme/jboss7-eap.01:7.2.final
+   85  podman images
+   86  cd ..
+   87  ll
+   88  cd ques-01/
+   89  pwd
+   90  ll
+   91  vim Dockerfile 
+   92  #podman build  --layers=false -t acme/jboss7-eap.01 .
+   93  podman images
+   94  history > history
+   95  mv history 
+   96  mv history ../
+   97  cd ..
+   98  ll
+   99  vim history 
+  100  git clone https://github.com/cprakash2118/ex280
+  101  mv history ex280/
+  102  cd ex280/
+  103  pwd
+  104  ll
+  105  git add .
+  106  git commit -m "history"
+  107  git push 
+  108  ll
+  109  rm -rf history 
+  110  git commit -m "test" 
+  111  git push 
+  112  ll
+  113  cd ..
+  114  ll
+  115  rm -rf ex280 
+  116  git clone https://github.com/cprakash2118/ex280
+  117  cd ex280/
+  118  pwd
+  119  ll
+  120  rm -rf history 
+  121  git commit -m test
+  122  git push 
+  123  ll
+  124  git add .
+  125  git commit -m test
+  126  git push 
+  127  cd ..
+  128  ll
+  129  vim ques-01/Dockerfile 
+  130  cd ques-01/
+  131  pwd
+  132  ll
+  133  vim Dockerfile 
+  134  cd
+  135  ls -l /etc/containers/registries.conf 
+  136  cat /etc/containers/registries.conf | grep -i "#" 
+  137  cat /etc/containers/registries.conf | grep -v "#" 
+  138  cat /etc/containers/registries.conf | grep -v "#" | sort -u 
+  139  nslookup registry.hub.docker.com
+  140  nslookup hub.docker.com
+  141  nslookup cloud.google.com/container-registry
+  142  nslookup cloud.google.com
+  143  podman search rhel8
+  144  sudo su - 
+  145  podman search rhel8
+  146  podman search --help |less
+  147  podman --help |less
+  148  podman images
+  149  podman search rhel 
+  150  podman search rhel  |wc -l 
+  151  podman pull rhel
+  152  podman images
+  153  podman search rhel |less
+  154  podman  --help |less
+  155  podman images
+  156  podman info registry.access.redhat.com/rhel |less
+  157  podman info 
+  158  podman info  |less
+  159  pwd
+  160  ls
+  161  ls -a
+  162  cd .local/
+  163  pwd
+  164  ls
+  165  cd share/
+  166  pwd
+  167  ll
+  168  ls -lrth 
+  169  cd containers/
+  170  ls
+  171  cd storage/
+  172  ll
+  173  pwd
+  174  podman images
+  175  pwd
+  176  podman images
+  177  pwd
+  178  ls -lrth 
+  179  du -sh * 
+  180  pwd
+  181  rpm -qa |grep -i podman 
+  182  rpm -q -c podman
+  183  rpm -q -f /etc/containers/registries.conf 
+  184  rpm -q -c containers-common
+  185  vim /etc/containers/storage.conf
+  186  cat /etc/containers/storage.conf | grep -v "#" 
+  187  cat /etc/containers/storage.conf | grep -v "#"  |sort -u 
+  188  man 5 storage.conf
+  189  sudo su -
+  190  podman images
+  191  podman ps
+  192  cd
+  193  ll
+  194  cd ex180/
+  195  pwd
+  196  ll
+  197  cd ex280/
+  198  pwd
+  199  l
+  200  ll
+  201  cd ..
+  202  ll
+  203  cd ques-01/
+  204  pwd
+  205  ll
+  206  cd ..
+  207  cd ques-02/
+  208  pwd
+  209  ll
+  210  ./scriptStart.sh 
+  211  podman  ps
+  212  podman exec -it acme bash 
+  213  cat ../ques-01/Dockerfile 
+  214  cd
+  215  podman run -d --name app1 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  216  podman ps | grep app1 
+  217  podman run  --name app2 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  218  podman ps 
+  219  podman ps -a
+  220  podman start app2 
+  221  podman run --help |less
+  222  cd ex180/
+  223  ll
+  224  cd ques-01/
+  225  pwd
+  226  ll
+  227  vim Dockerfile 
+  228  podman build --layers=false -t demo01 .
+  229  podman images
+  230  podman rmi -f localhost/acme/jboss7-eap.01
+  231  podman rmi -f localhost/acme/jboss7-eap.01:7.2.final
+  232  podman ps -a 
+  233  podman ps 
+  234  podman images
+  235  podman rmi -f quay.io/cprakash2118/localhost/acme/jboss7-eap.01:7.2.final
+  236  podman images
+  237  podman rmi -f registry.access.redhat.com/rhel
+  238  podman rmi -f quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  239  podman images
+  240  podman ps 
+  241  podman ps -a
+  242  podman run -d --name app1 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  243  podman images
+  244  podman run -d --name test01 -p 8080:80 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  245  podman PS
+  246  podman ps
+  247  podman  ps 
+  248  podman exec -it app1 bash 
+  249  cur http://localhost:8080
+  250  curl http://localhost:8080
+  251  podman exec -it app1 bash 
+  252  podman  restart app1 
+  253  curl http://localhost:8080
+  254  podman exec -it app1 bash 
+  255  podman images
+  256  podman ps 
+  257  lsof -i:8080
+  258  curl http://localhost:8080
+  259  curl http://localhost:8080/index.html 
+  260  vim Dockerfile 
+  261  vim Dockerfile 
+  262  podman ps 
+  263  podman run -d --name web01 -p 8080:8080 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  264  podman run -d --name web01 -p 8081:8080 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  265  podman ps -a
+  266  podman rm -f web01 
+  267  podman run -d --name web01 -p 8081:8080 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  268  curl http://localhost:8081
+  269  podman images
+  270  podman run -d --name btm01 -p 8082:8080 localhost/demo02
+  271  podman run -d --name btm02 -p 8083:80 localhost/demo02
+  272  podman ps 
+  273  podman exec -it btm02 bash 
+  274  podman ps 
+  275  podman run -d --name in01 -p 8091:80 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  276  podman ps
+  277  curl http://localhost:8091
+  278  podman exec -it in01 bash 
+  279  curl http://localhost:8091
+  280  vim Dockerfile 
+  281  podman images
+  282  podman run -d --name in02 -p 8095:8080 -p 8096:9990 -p 8097:9999 localhost/demo02
+  283  podman  ps
+  284  vim Dockerfile 
+  285  podman images
+  286      PODMAN RUN --NAME MYSQL-BASIC    -E mysql_user=USER1 -E mysql_password=MYPA55    -E mysql_database=ITEMS -E mysql_root_password=R00TPA55 \
+  287      PODMAN RUN --NAME MYSQL-BASIC    -E mysql_user=USER1 -E mysql_password=MYPA55    -E mysql_database=ITEMS -E mysql_root_password=R00TPA55 \
+  288      PODMAN RUN --NAME MYSQL-BASIC    -E mysql_user=USER1 -E mysql_password=MYPA55    -E mysql_database=ITEMS -E mysql_root_password=R00TPA55    -D REGISTRY.REDHAT.IO/RHEL8/MYSQL-80:1
+  289  podman run --name mysql-con01 -e mysql_user=user1 -e mysql_password=mypa55 -d registry.redhat.io/rhel8/mysql-80:1
+  290  sudo su - 
+  291  podman  ps
+  292  podman run --name mysql-con01 -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d registry.redhat.io/rhel8/mysql-80:1
+  293  podman login registry.redhat.io
+  294  podman run --name mysql-con01 -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d registry.redhat.io/rhel8/mysql-80:1
+  295  podman images
+  296  podman  ps
+  297  podman exec -it mysql-con01 bash 
+  298  ll
+  299  podman images
+  300  vim Dockerfile 
+  301  podman run --name example01 -d localhost/demo02
+  302  podman exec -it example01 bash 
+  303  vim Dockerfile 
+  304  podman exec -it example01 bash 
+  305  vim Dockerfile 
+  306  podman build --layers=false -t demo03 .
+  307  vim Dockerfile 
+  308  podman images
+  309  podman build --layers=false -t demo03 .
+  310  podman imas
+  311  podman images
+  312  sudo su - 
+  313  df -THP
+  314  podman imas
+  315  podman images
+  316  sudo su - 
+  317  podman imas
+  318  podman images 
+  319  rm -rf ~/Downloads/jboss-eap-7.4
+  320  df -THP 
+  321  vim Dockerfile 
+  322  podman build --layers=false -t demo03 .
+  323  df -THP 
+  324  cd ~/Dow
+  325  cd ~/Downloads/
+  326  ll
+  327  rm -rf jboss-eap-7.4.0.zip
+  328  df -THP
+  329  sudo su - 
+  330  podman images
+  331  podman rmi -f quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  332  DF -thp
+  333  df -THP
+  334  podman build --layers=false -t demo03 .
+  335  cd -
+  336  podman build --layers=false -t demo03 .
+  337  podman imas
+  338  podman images
+  339  podman ps 
+  340  podman  exec -it example01 bash 
+  341  podman rmi -f localhost/demo02
+  342  DF -thp 
+  343  df -THP
+  344  podman build --layers=false -t demo03 .
+  345  podman images
+  346  podman run --name example02 -d localhost/demo03
+  347  podman  exec -it example02 bash 
+  348  cd
+  349  lab container-rootless start 
+  350  podman  run --help |less
+  351  sudo podman run --name asroot -ti  REGISTRY.ACCESS.REDHAT.COM/UBI8:LATEST /bin/bash
+  352  sudo podman run --name asroot -ti  REGISTRY.ACCESS.REDHAT.COM/ubi8:latest /bin/bash
+  353  podman run --name asroot -ti  REGISTRY.ACCESS.REDHAT.COM/ubi8:latest /bin/bash
+  354  podman images
+  355  podman save -o  demo.tar  REGISTRY.ACCESS.REDHAT.COM/ubi8
+  356  ls
+  357  podman rmi -f REGISTRY.ACCESS.REDHAT.COM/ubi8
+  358  podman images
+  359  tar -tfv demo.tar |less
+  360  tar -tfv demo.tar 
+  361  tar -tvf demo.tar |less
+  362  podman load -i demo.tar
+  363  podman images
+  364  podman ps
+  365  podman stop mysql-con01
+  366  podman commit test mysql-con01
+  367  podman commit mysql-con01 test
+  368  podman images
+  369  podman ps 
+  370  podman ps -a
+  371  podman start mysql-con01 
+  372  podman commit mysql-con01 test02 
+  373  sudo su - 
+  374  history | grep tar 
+  375  podman images
+  376  podman  history REGISTRY.ACCESS.REDHAT.COM/ubi8
+  377  podman history --help |less
+  378  podman top
+  379  podman ps
+  380  podman top mysql-con01
+  381  podman logs mysql-con01
+  382  podman stat 
+  383  podman stats --help |less
+  384  podman ps
+  385  podman stats mysql-con01
+  386  kill -l 
+  387  man kill SIGKILL
+  388  PWD
+  389  pwd
+  390  podman  images
+  391  sudo ps -ef | grep "sleep 1000"
+  392  sudo ps -ef | grep "sleep 2000"
+  393  sudo su - 
+  394  ps -aef | grep firefox
+  395  KILL -19 19263
+  396  kill -19 19263
+  397  kill -18 19263
+  398  kill -19 19263
+  399  podman images
+  400  podman inspect localhost/test02  |less
+  401  podman history 
+  402  podman history REGISTRY.ACCESS.REDHAT.COM/ubi8
+  403  podman images
+  404  ls
+  405  history  | grep tar | grep demo 
+  406  history  | grep tar 
+  407  podman images
+  408  df -THP 
+  409  podman images -qa
+  410  podman rmi -f `podman images -qa`
+  411  podman  images
+  412  podman  ps
+  413  podman  ps -a
+  414  df -THP 
+  415      podman run --name mysql-basic 
+  416     -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 
+  417     -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 
+  418  podman run --name mysql-basic -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d registry.redhat.io/rhel8/mysql-80:1
+  419  podman logsin registry.redhat.io
+  420  podman login registry.redhat.io
+  421  podman run --name mysql-basic -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d registry.redhat.io/rhel8/mysql-80:1
+  422  podman images
+  423  podman ps
+  424  podman  exec -it mysql-basic bash 
+  425  podman ps
+  426  podman rm -f dfd58bb8f5ca
+  427  podman run --name mysql-basic -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d registry.redhat.io/rhel8/mysql-80:1
+  428  podman  exec -it mysql-basic bash 
+  429  sudo su - 
+  430  podman run --name mysql -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d -v /opt/db01:/var/lib/mysql registry.redhat.io/rhel8/mysql-80:1
+  431  podman ps
+  432  podman ps -a
+  433  podman logs 6c05504e46dd
+  434  podman rm -f mysql 
+  435  podman run --name mysql -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d -v /opt/db01:/var/lib/mysql/data registry.redhat.io/rhel8/mysql-80:1
+  436  podman ps
+  437  podman ps -a
+  438  podman logs 468a9678fe6b
+  439  sudo su - 
+  440  mkdir local/mysql 
+  441  mkdir -p] local/mysql 
+  442  mkdir -p local/mysql 
+  443  sudo chmow  27:27 local/mysql/
+  444  sudo chown  27:27 local/mysql/
+  445  man semanage fcontext 
+  446  semanage fcontext -a -t container_file_t  "/home/student/local/mysql(/.*)?
+  447  semanage fcontext -a -t container_file_t  "/home/student/local/mysql(/.*)?"
+  448  ls -ld /opt/db01/
+  449  ls -ldZ /opt/db01/
+  450  lab manage-storage start
+  451  rm -rf local/
+  452  lab manage-storage start
+  453  ls -ldZ /home/student/local/mysql
+  454  mkdir -pv /home/student/local/mysql
+  455   sudo semanage fcontext -a  -t container_file_t '/home/student/local/mysql(/.*)?'
+  456  sudo restorecon -R /home/student/local/mysql
+  457  ls -ldZ /home/student/local/mysql
+  458  sudo chown 27:27 /home/student/local/mysql
+  459  is -ld /home/student/local/mysql
+  460  ls -ld /home/student/local/mysql
+  461  podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data \ -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  462  podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  463  podman  ps
+  464  podman  ps -a
+  465  podman run --name persist-4 -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  466  podman images
+  467  podman is]
+  468  podman is
+  469  podman ps
+  470  podman ps -a
+  471  podman ps 
+  472  podman ps -a
+  473  podman  images
+  474  podman delele 09887d80b965
+  475  podman rmi -f 09887d80b965
+  476  podman run --name persist-4 -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL=MYPASSWORD=r00tpa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  477  podman  ps
+  478  #podman run --name persist-4 -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  479  podman  images
+  480  podman  images -qa 
+  481  podman rmi -f  09887d80b965
+  482  podman run --name persist-4 -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  483  podman  ps
+  484  podman  ps -a
+  485  podman  logs persist-4
+  486  #podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  487  podman images
+  488  podman rmi -f  09887d80b965
+  489  podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  490  podman images
+  491  podman ps
+  492  podman ps -a
+  493  podman  logs  persist-db
+  494  #podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  495  ls -ld /home/student/local/mysql
+  496  ls -ld /var/lib/mysql/data
+  497  ls -ldZd /home/student/local/mysql
+  498  #podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  499   podman unshare chown 27:27 /home/student/local/mysql
+  500  # podman unshare chown 27:27 /home/student/local/mysql
+  501  ls -ld /home/student/local/mysql
+  502   podman unshare chown 27:27 /home/student/local/mysql
+  503  sudo  podman unshare chown 27:27 /home/student/local/mysql
+  504  sudo su - 
+  505  ls -ld /home/student/local/mysql
+  506  sudo su - 
+  507   podman unshare chown 27:27 /home/student/local/mysql
+  508  ls -ld /home/student/local/mysql
+  509  sudo su -
+  510   podman unshare chown 27:27 /home/student/local/mysql
+  511  ls -ldZ /home/student/local/mysql/
+  512  sudo restorecon -R /home/student/local/mysql
+  513  ls -ldZ /home/student/local/mysql/
+  514  #podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  515  podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  516  podman images
+  517  podman rmi -f  09887d80b965
+  518  podman ps
+  519  podman images
+  520  podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  521  podman ps 
+  522  podman --help |less
+  523  podman exec -it persist-db bash 
+  524  podman ps
+  525  podman rm -f persist-db
+  526  podman ps
+  527  podman ps -a
+  528  podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  529  podman ps 
+  530  podman exec -it persist-db bash 
+  531  #podman run --name persist-db -d -v /home/student/local/mysql:/var/lib/mysql/data  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55  -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 registry.redhat.io/rhel8/mysql-80:1
+  532  #/home/student/local/mysql:/var/lib/mysql/data
+  533  cd /home/student/local/mysql/
+  534  ls
+  535  mkdir direeeeeeeeeee
+  536  sudo mkdir direeeeeeeeeee
+  537  podman exec -it persist-db bash 
+  538  ls
+  539  df -THP .
+  540  pwd
+  541  podman ps
+  542  podman inspect persist-db |less
+  543  df -h
+  544  df -THP
+  545  df -ha
+  546  df -ha | grep -i bind 
+  547  podman exec -it persist-db bash 
+  548  df -THP .
+  549  pwd
+  550  podman pull recovery.quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  551  podman pull quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  552  podman images
+  553  podman run -d --name server-01 quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  554  podman images
+  555  podman  ps 
+  556  podman exec -it server-01 bash 
+  557  which nslookup
+  558  rpm -q -f /usr/bin/nslookup
+  559  podman exec -it server-01 bash 
+  560  rpm -q -f /usr/bin/nslookup
+  561  podman exec -it server-01 bash 
+  562  nslookup workstation 
+  563  nslookup bastion 
+  564  172.25.250.9
+  565  172.25.250.254
+  566  podman exec -it server-01 bash 
+  567  ll
+  568  cd ex180/
+  569  pwd
+  570  ll
+  571  cd ques-01/
+  572  pwd
+  573  ll
+  574  vim Dockerfile 
+  575  ls -l jboss-eap-7.4.0.zip
+  576  vim Dockerfile 
+  577  ll
+  578  unzip jboss-eap-7.4.0.zip 
+  579  ll
+  580  rm -rf jboss-eap-7.4 
+  581  vim Dockerfile 
+  582  podman images
+  583  podman build --layers=false -t acme/jboss7-eap.01 .
+  584  ll
+  585  podman  images
+  586  podman rmi -f 09887d80b965
+  587  podman rmi -f c17c0c02f0bf
+  588  podman  images
+  589  podman build --layers=false -t acme/jboss7-eap.01 .
+  590  podman images
+  591  vim Dockerfile 
+  592  cd ../ques-02/
+  593  pwd
+  594  ll
+  595  cat scriptStart.sh
+  596  podman run -d --name acme -p 8090:80 -p 12080:8080  -p 12990:9990  -p  12999:9999 localhost/acme/jboss7-eap.01
+  597  podman ps 
+  598  podman  exec -it acme bash 
+  599  podman ps 
+  600  curl localhost:8080
+  601  curl localhost:12080
+  602  curl localhost:12080 | grep JBoss
+  603  podman  ps 
+  604  podman  rm -f acme 
+  605  date ; podman run -d --name acme -p 8090:80 -p 12080:8080  -p 12990:9990  -p  12999:9999 localhost/acme/jboss7-eap.01 ; date ; curl localhost:12080 | grep JBoss
+  606  curl localhost:12080 | grep JBoss
+  607  podman ps
+  608  podman port acme 
+  609  ll
+  610  cd ..
+  611  cd ques-01/
+  612  ll
+  613  unzip jboss-eap-7.4.0.zip 
+  614  ll
+  615  jboss-eap-7.4/bin/standalone.sh 
+  616  cat /etc/containers/registries.conf 
+  617  cat /etc/containers/registries.conf  | grep -v "#" | sort -u 
+  618  podman images
+  619  podman ps
+  620  podman inspect acme |less
+  621  vim Dockerfile 
+  622  podman inspect acme |less
+  623  podman images
+  624  podman ps
+  625  podman images
+  626  podman inspect 3d75ab54da6a |less
+  627  podman images
+  628  podman rmi quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  629  podman images
+  630  podman ps
+  631  podman images
+  632  vim Dockerfile 
+  633  podman images
+  634  podman build --layers=false -t acme/jboss7-eap.02 .
+  635  podman images
+  636  podman tag localhost/acme/jboss7-eap.01 jboss7-eap.01-prod-book-project1
+  637  podman images
+  638  podman tag localhost/acme/jboss7-eap.01 docker.hub.com:50000/jboss7-eap.01-prod-book-project1
+  639  podman images
+  640  podman tag quay.io/cprakash2118/april-java-unzip-httpd-image-02  quay.io/cprakash2118/jboss7-eap.01-prod-book-project1:v1.prod.final
+  641  podman images
+  642  podman  login quay.io
+  643  podman push quay.io/cprakash2118/jboss7-eap.01-prod-book-project1:v1.prod.final
+  644  podman  login quay.io
+  645  podman push quay.io/cprakash2118/jboss7-eap.01-prod-book-project1:v1.prod.final
+  646  podman images
+  647  #podman pull quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  648  mkdir new 
+  649  cd new/
+  650  pwd
+  651  ll
+  652  vim Dockerfile
+  653  date && cal
+  654  dateiii && cal
+  655  vim Dockerfile
+  656  podman build --layers=false  -t anything .
+  657  vim Dockerfile
+  658  podman build --layers=false  -t anything .
+  659  vim Dockerfile
+  660  podman build --layers=false  -t anything .
+  661  vim Dockerfile
+  662  podman build --layers=false  -t anything .
+  663  vim Dockerfile
+  664  podman build --layers=false  -t anything .
+  665  podman images
+  666  cat Dockerfile 
+  667  ll
+  668  git clone https://cprakash2118/ex280
+  669  git clone https://github.com/cprakash2118/ex280
+  670  cp -rpv Dockerfile ex280/
+  671  cd ex280/
+  672  history > histpry
